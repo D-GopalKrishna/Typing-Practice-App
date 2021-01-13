@@ -1,15 +1,15 @@
 import psycopg2
-from read_splitting_pdf_2 import book_scrape
-import numpy as np
+from scrape import web_text
+# import numpy as np
 
 
-conn = psycopg2.connect(database="typing-practice-DB", user='postgres', password='ManishPort', host='localhost')
-    
+conn = psycopg2.connect(database="typing-DB-webscrape", user='postgres', password='ManishPort', host='localhost')
+
 cur = conn.cursor()
 
-quotes, num_of_quotes = book_scrape(10, 200)
+quotes, num_of_quotes = web_text()
 
-a = list(range(4, num_of_quotes+4))
+a = list(range(0, num_of_quotes))
 b = quotes
 
 
